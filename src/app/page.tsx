@@ -52,18 +52,14 @@ const TYPEWRITER_PROMPTS = [
 ];
 
 const FLOATING_CARDS = [
-  { text: "Summarize this article in 3 bullet points", left: "3%", duration: "22s", delay: "0s", opacity: 0.18, rot: "-3deg", size: "large" },
-  { text: "Write a professional email to decline politely", left: "72%", duration: "26s", delay: "3s", opacity: 0.16, rot: "2deg", size: "medium" },
-  { text: "Debug this Python function and explain the fix", left: "12%", duration: "19s", delay: "7s", opacity: 0.15, rot: "-1deg", size: "small" },
-  { text: "Create a weekly meal plan for a family of 4", left: "58%", duration: "24s", delay: "1s", opacity: 0.18, rot: "3deg", size: "large" },
-  { text: "Explain quantum computing to a 5 year old", left: "33%", duration: "28s", delay: "5s", opacity: 0.17, rot: "-2deg", size: "medium" },
-  { text: "Generate 10 SaaS startup ideas for 2025", left: "82%", duration: "21s", delay: "9s", opacity: 0.15, rot: "1deg", size: "small" },
-  { text: "Write unit tests for this REST API endpoint", left: "45%", duration: "25s", delay: "11s", opacity: 0.16, rot: "-4deg", size: "medium" },
-  { text: "Rewrite this landing page copy to convert better", left: "20%", duration: "23s", delay: "2s", opacity: 0.18, rot: "2.5deg", size: "large" },
-  { text: "Analyze this CSV data and find trends", left: "65%", duration: "27s", delay: "6s", opacity: 0.15, rot: "-1.5deg", size: "small" },
-  { text: "Build a React component with TypeScript", left: "8%", duration: "20s", delay: "8s", opacity: 0.17, rot: "3.5deg", size: "medium" },
-  { text: "Write a cold outreach DM template", left: "50%", duration: "24s", delay: "4s", opacity: 0.16, rot: "-3.5deg", size: "large" },
-  { text: "Create a workout plan for muscle building", left: "88%", duration: "22s", delay: "10s", opacity: 0.15, rot: "1.5deg", size: "small" },
+  { text: "Summarize this article in 3 bullet points", left: "2%", duration: "24s", delay: "0s", opacity: 0.40, rot: "-2deg", size: "large" },
+  { text: "Write a professional email to decline politely", left: "28%", duration: "28s", delay: "4s", opacity: 0.38, rot: "1.5deg", size: "small" },
+  { text: "Debug this Python function and explain the fix", left: "52%", duration: "22s", delay: "8s", opacity: 0.42, rot: "-1deg", size: "medium" },
+  { text: "Create a weekly meal plan for a family of 4", left: "78%", duration: "26s", delay: "2s", opacity: 0.36, rot: "2.5deg", size: "large" },
+  { text: "Explain quantum computing to a 5 year old", left: "14%", duration: "30s", delay: "6s", opacity: 0.44, rot: "-3deg", size: "medium" },
+  { text: "Generate 10 SaaS startup ideas for 2025", left: "65%", duration: "23s", delay: "10s", opacity: 0.38, rot: "1deg", size: "small" },
+  { text: "Rewrite this landing page copy to convert better", left: "40%", duration: "27s", delay: "3s", opacity: 0.40, rot: "-1.5deg", size: "large" },
+  { text: "Build a React component with TypeScript", left: "88%", duration: "25s", delay: "7s", opacity: 0.36, rot: "2deg", size: "small" },
 ];
 
 function useTypewriter(phrases: string[], typingSpeed = 80, deleteSpeed = 40, pauseTime = 2000) {

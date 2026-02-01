@@ -563,8 +563,8 @@ body {
 /* Floating prompt cards background */
 @keyframes float-up {
   0% { transform: translateY(100%) rotate(var(--rot, -2deg)); opacity: 0; }
-  10% { opacity: var(--max-opacity, 0.15); }
-  80% { opacity: var(--max-opacity, 0.15); }
+  5% { opacity: var(--max-opacity, 0.45); }
+  85% { opacity: var(--max-opacity, 0.45); }
   100% { transform: translateY(-120%) rotate(var(--rot, 2deg)); opacity: 0; }
 }
 
@@ -575,31 +575,38 @@ body {
   font-size: 12px;
   line-height: 1.5;
   max-width: 220px;
-  color: rgba(255, 255, 255, 0.7);
-  border: 1px solid rgba(255, 107, 53, 0.15);
-  background: rgba(45, 45, 48, 0.4);
-  backdrop-filter: blur(8px);
+  color: rgba(255, 255, 255, 0.85);
+  border: 1px solid rgba(255, 107, 53, 0.35);
+  background: rgba(30, 30, 34, 0.7);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
   pointer-events: none;
   animation: float-up var(--duration, 20s) linear var(--delay, 0s) infinite;
   opacity: 0;
-  box-shadow: 0 0 20px rgba(255, 107, 53, 0.06), inset 0 0 15px rgba(255, 107, 53, 0.03);
+  box-shadow:
+    0 0 20px rgba(255, 107, 53, 0.2),
+    0 0 50px rgba(255, 107, 53, 0.08),
+    inset 0 1px 0 rgba(255, 255, 255, 0.06);
 }
 .floating-card-small {
-  max-width: 180px;
+  max-width: 170px;
   padding: 10px 14px;
   font-size: 11px;
 }
 .floating-card-medium {
-  max-width: 240px;
+  max-width: 250px;
   padding: 14px 18px;
   font-size: 12px;
 }
 .floating-card-large {
-  max-width: 300px;
+  max-width: 310px;
   padding: 18px 22px;
   font-size: 13px;
-  border: 1px solid rgba(255, 107, 53, 0.2);
-  box-shadow: 0 0 30px rgba(255, 107, 53, 0.08), inset 0 0 20px rgba(255, 107, 53, 0.04);
+  border: 1px solid rgba(255, 107, 53, 0.4);
+  box-shadow:
+    0 0 24px rgba(255, 107, 53, 0.25),
+    0 0 60px rgba(255, 107, 53, 0.1),
+    inset 0 1px 0 rgba(255, 255, 255, 0.08);
 }
 
 /* Card hover lift + glow */
