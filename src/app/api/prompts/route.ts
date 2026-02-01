@@ -32,7 +32,7 @@ export async function POST(req: NextRequest) {
   if (!supabase) return NextResponse.json({ error: "Not configured" }, { status: 500 });
 
   const body = await req.json();
-  const { title, prompt_text, tags, category, is_public } = body;
+  const { title, prompt_text, tags, category, is_public, user_id } = body;
 
   if (!title || !prompt_text) {
     return NextResponse.json({ error: "Title and prompt required" }, { status: 400 });
@@ -40,7 +40,7 @@ export async function POST(req: NextRequest) {
 
   const { data, error } = await supabase
     .from("prompts")
-    .insert({ title, prompt_text, tags: tags || [], category: category || "General", is_public: is_public ?? true, copies: 0 })
+    .insert({ title, prompt_text, tags: tags || [], category: category || "General", is_public: is_public ?? true, copies: 0, user_id: user_id || null })
     .select()
     .single();
 
