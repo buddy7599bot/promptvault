@@ -420,6 +420,27 @@ export default function Home() {
         </div>
       </section>
 
+      {/* DashPane Promo */}
+      <section className="mx-auto max-w-5xl px-6 py-12">
+        <a href="https://dashpane.pro" target="_blank" rel="noopener noreferrer" className="block liquid-glass-card p-6 md:p-8 transition hover:scale-[1.01] hover:shadow-lg group">
+          <div className="flex flex-col md:flex-row items-center gap-6">
+            <div className="flex-shrink-0 w-14 h-14 rounded-2xl bg-gradient-to-br from-cyan-500 to-blue-600 flex items-center justify-center text-2xl shadow-lg">
+              ⚡
+            </div>
+            <div className="flex-1 text-center md:text-left">
+              <p className="text-xs text-foreground-secondary mb-1">From the makers of PromptVault</p>
+              <h3 className="text-xl font-bold text-foreground group-hover:text-cyan-500 dark:group-hover:text-cyan-400 transition">DashPane - The macOS App Switcher That Saves You 30 Min/Day</h3>
+              <p className="text-sm text-foreground-secondary mt-1">Switch between apps instantly with a beautiful command palette. Built for developers and power users.</p>
+            </div>
+            <div className="flex-shrink-0">
+              <span className="inline-flex items-center gap-1 rounded-full border border-cyan-500/30 bg-cyan-500/10 px-4 py-2 text-sm font-medium text-cyan-600 dark:text-cyan-400 group-hover:bg-cyan-500/20 transition">
+                Check it out →
+              </span>
+            </div>
+          </div>
+        </a>
+      </section>
+
       {/* Footer */}
       <footer className="border-t border-border py-8 text-center text-sm text-foreground-secondary">
         <p>PromptVault. Free forever. Built for people who talk to AI every day.</p>
