@@ -427,8 +427,8 @@ export default function Home() {
             <img src="/dashpane-logo.png" alt="DashPane" className="flex-shrink-0 w-14 h-14 rounded-2xl shadow-lg" />
             <div className="flex-1 text-center md:text-left">
               <p className="text-xs text-foreground-secondary mb-1">From the makers of PromptVault</p>
-              <h3 className="text-xl font-bold text-foreground group-hover:text-cyan-500 dark:group-hover:text-cyan-400 transition">DashPane - The macOS App Switcher That Saves You ~71 Hours Every Year</h3>
-              <p className="text-sm text-foreground-secondary mt-1">Switch between apps instantly with a beautiful command palette. Built for developers and power users who hate wasting time.</p>
+              <h3 className="text-lg font-bold text-foreground group-hover:text-cyan-500 dark:group-hover:text-cyan-400 transition">DashPane: Save ~71 hours/year switching apps on macOS</h3>
+              <p className="text-sm text-foreground-secondary mt-1">Beautiful command palette for developers and power users.</p>
             </div>
             <div className="flex-shrink-0">
               <span className="inline-flex items-center gap-1 rounded-full border border-cyan-500/30 bg-cyan-500/10 px-4 py-2 text-sm font-medium text-cyan-600 dark:text-cyan-400 group-hover:bg-cyan-500/20 transition">
