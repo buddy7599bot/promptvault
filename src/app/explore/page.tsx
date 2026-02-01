@@ -178,12 +178,12 @@ export default function Explore() {
         </div>
 
         {/* Category tabs with underline animation */}
-        <div className="mb-6 flex flex-wrap gap-2">
+        <div className="mb-6 flex gap-2 overflow-x-auto pb-2 scrollbar-hide">
           {CATEGORIES.map((c) => (
             <button
               key={c}
               onClick={() => setCategory(c)}
-              className={`liquid-glass-tab tab-underline ${category === c ? "active" : ""}`}
+              className={`liquid-glass-tab tab-underline whitespace-nowrap flex-shrink-0 ${category === c ? "active" : ""}`}
             >
               {c}
             </button>
