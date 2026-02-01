@@ -52,14 +52,14 @@ const TYPEWRITER_PROMPTS = [
 ];
 
 const FLOATING_CARDS = [
-  { text: "Summarize this article in 3 bullet points", left: "2%", duration: "24s", delay: "0s", opacity: 0.40, rot: "-2deg", size: "large" },
-  { text: "Write a professional email to decline politely", left: "28%", duration: "28s", delay: "4s", opacity: 0.38, rot: "1.5deg", size: "small" },
-  { text: "Debug this Python function and explain the fix", left: "52%", duration: "22s", delay: "8s", opacity: 0.42, rot: "-1deg", size: "medium" },
-  { text: "Create a weekly meal plan for a family of 4", left: "78%", duration: "26s", delay: "2s", opacity: 0.36, rot: "2.5deg", size: "large" },
-  { text: "Explain quantum computing to a 5 year old", left: "14%", duration: "30s", delay: "6s", opacity: 0.44, rot: "-3deg", size: "medium" },
-  { text: "Generate 10 SaaS startup ideas for 2025", left: "65%", duration: "23s", delay: "10s", opacity: 0.38, rot: "1deg", size: "small" },
-  { text: "Rewrite this landing page copy to convert better", left: "40%", duration: "27s", delay: "3s", opacity: 0.40, rot: "-1.5deg", size: "large" },
-  { text: "Build a React component with TypeScript", left: "88%", duration: "25s", delay: "7s", opacity: 0.36, rot: "2deg", size: "small" },
+  { text: "Summarize this article in 3 bullet points", left: "2%", top: "8%", duration: "18s", delay: "0s", opacity: 0.35, rot: "-2deg", size: "large" },
+  { text: "Write a professional email to decline politely", left: "68%", top: "5%", duration: "22s", delay: "2s", opacity: 0.30, rot: "1.5deg", size: "small" },
+  { text: "Debug this Python function and explain the fix", left: "35%", top: "55%", duration: "20s", delay: "4s", opacity: 0.32, rot: "-1deg", size: "medium" },
+  { text: "Create a weekly meal plan for a family of 4", left: "72%", top: "50%", duration: "24s", delay: "1s", opacity: 0.28, rot: "2.5deg", size: "large" },
+  { text: "Explain quantum computing to a 5 year old", left: "5%", top: "58%", duration: "21s", delay: "3s", opacity: 0.33, rot: "-3deg", size: "medium" },
+  { text: "Generate 10 SaaS startup ideas for 2025", left: "50%", top: "12%", duration: "19s", delay: "5s", opacity: 0.30, rot: "1deg", size: "small" },
+  { text: "Rewrite this landing page copy to convert better", left: "18%", top: "30%", duration: "23s", delay: "2s", opacity: 0.28, rot: "-1.5deg", size: "large" },
+  { text: "Build a React component with TypeScript", left: "82%", top: "32%", duration: "20s", delay: "4s", opacity: 0.30, rot: "2deg", size: "small" },
 ];
 
 function useTypewriter(phrases: string[], typingSpeed = 80, deleteSpeed = 40, pauseTime = 2000) {
@@ -207,6 +207,7 @@ export default function Home() {
               className={`floating-card floating-card-${card.size}`}
               style={{
                 left: card.left,
+                top: card.top,
                 "--duration": card.duration,
                 "--delay": card.delay,
                 "--max-opacity": card.opacity,
