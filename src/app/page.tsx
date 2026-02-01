@@ -210,6 +210,7 @@ export default function Home() {
                 top: card.top,
                 "--duration": card.duration,
                 "--delay": card.delay,
+                "--enter-delay": `${0.3 + i * 0.4}s`,
                 "--max-opacity": card.opacity,
                 "--rot": card.rot,
               } as React.CSSProperties}

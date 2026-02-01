@@ -569,6 +569,11 @@ body {
   100% { transform: translateY(0px) rotate(var(--rot, -2deg)); }
 }
 
+@keyframes card-enter {
+  0% { opacity: 0; transform: translateY(20px) scale(0.92) rotate(var(--rot, -2deg)); filter: blur(4px); }
+  100% { opacity: var(--max-opacity, 0.30); transform: translateY(0px) scale(1) rotate(var(--rot, -2deg)); filter: blur(0px); }
+}
+
 .floating-card {
   position: absolute;
   padding: 14px 18px;
@@ -582,8 +587,10 @@ body {
   backdrop-filter: blur(14px);
   -webkit-backdrop-filter: blur(14px);
   pointer-events: none;
-  animation: float-drift var(--duration, 20s) ease-in-out var(--delay, 0s) infinite;
-  opacity: var(--max-opacity, 0.40);
+  animation: 
+    card-enter 0.8s ease-out var(--enter-delay, 0s) forwards,
+    float-drift var(--duration, 20s) ease-in-out calc(var(--enter-delay, 0s) + 0.8s) infinite;
+  opacity: 0;
   box-shadow:
     0 0 20px rgba(255, 107, 53, 0.2),
     0 0 50px rgba(255, 107, 53, 0.08),
