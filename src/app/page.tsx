@@ -331,7 +331,7 @@ export default function Home() {
           ].map((s, i) => (
             <div key={s.step} className="text-center stagger-card" style={{ transitionDelay: `${i * 150}ms` }}>
               <div className="chrome-ring-button chrome-ring-hover mx-auto mb-4 !w-14 !h-14">
-                <div className="chrome-ring-inner text-xl font-bold text-coral-600 dark:text-coral-400">
+                <div className="chrome-ring-inner text-xl font-bold" style={{ color: '#FF6B35' }}>
                   {s.step}
                 </div>
               </div>
