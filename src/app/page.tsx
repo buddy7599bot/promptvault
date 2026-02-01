@@ -10,6 +10,9 @@ const CATEGORIES = [
   { icon: "🎨", name: "Creative", desc: "Stories, images, ideas" },
   { icon: "📚", name: "Learning", desc: "Summarize, teach, quiz" },
   { icon: "🔧", name: "Productivity", desc: "Automate, organize, plan" },
+  { icon: "🖼️", name: "Image Gen", desc: "Midjourney, DALL-E, Stable Diffusion" },
+  { icon: "🚀", name: "Career", desc: "Resumes, interviews, networking" },
+  { icon: "📣", name: "Marketing", desc: "Ads, SEO, launch copy" },
 ];
 
 const FEATURED_PROMPTS = [

@@ -13,7 +13,7 @@ interface Prompt {
   copies: number;
 }
 
-const CATEGORIES = ["All", "Writing", "Coding", "Business", "Creative", "Learning", "Productivity"];
+const CATEGORIES = ["All", "Writing", "Coding", "Business", "Creative", "Learning", "Productivity", "Image Gen", "Career", "Marketing"];
 
 function highlightText(text: string, indices: readonly [number, number][] | undefined, maxLen = 200) {
   const truncated = text.length > maxLen ? text.slice(0, maxLen) + "..." : text;
