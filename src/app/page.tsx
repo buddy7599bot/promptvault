@@ -330,10 +330,8 @@ export default function Home() {
             { step: "3", title: "Share", desc: "Create public collections. Share with a link. Build your prompt portfolio." },
           ].map((s, i) => (
             <div key={s.step} className="text-center stagger-card" style={{ transitionDelay: `${i * 150}ms` }}>
-              <div className="chrome-ring-button chrome-ring-hover mx-auto mb-4 !w-14 !h-14">
-                <div className="chrome-ring-inner text-xl font-bold" style={{ color: '#FF6B35' }}>
-                  {s.step}
-                </div>
+              <div className="mx-auto mb-4 w-14 h-14 rounded-full flex items-center justify-center text-xl font-bold border-2 border-[#FF6B35]/40 bg-[#FF6B35]/10 dark:bg-[#FF6B35]/15" style={{ color: '#FF6B35' }}>
+                {s.step}
               </div>
               <h3 className="mb-2 text-lg font-semibold">{s.title}</h3>
               <p className="text-foreground-secondary">{s.desc}</p>
