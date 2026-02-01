@@ -59,7 +59,7 @@ const FLOATING_CARDS = [
   // Right edge only
   { text: "Write a professional email to decline politely", left: "78%", top: "3%", duration: "22s", delay: "2s", opacity: 0.30, rot: "1.5deg", size: "medium" },
   { text: "Create a weekly meal plan for a family of 4", left: "80%", top: "45%", duration: "24s", delay: "1s", opacity: 0.28, rot: "2.5deg", size: "small" },
-  { text: "Build a React component with TypeScript", left: "79%", top: "25%", duration: "20s", delay: "4s", opacity: 0.25, rot: "2deg", size: "small" },
+  { text: "Build a React component with TypeScript", left: "83%", top: "18%", duration: "20s", delay: "4s", opacity: 0.25, rot: "2deg", size: "small" },
 ];
 
 function useTypewriter(phrases: string[], typingSpeed = 80, deleteSpeed = 40, pauseTime = 2000) {
