@@ -160,30 +160,12 @@ function CopyParticles({ show }: { show: boolean }) {
 }
 
 export default function Home() {
-  const [email, setEmail] = useState("");
-  const [submitted, setSubmitted] = useState(false);
   const [copied, setCopied] = useState<number | null>(null);
   const typedText = useTypewriter(TYPEWRITER_PROMPTS);
 
   const categoriesRef = useScrollReveal();
   const featuredRef = useScrollReveal();
   const howItWorksRef = useScrollReveal();
-  const pricingRef = useScrollReveal();
-
-  const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault();
-    if (!email) return;
-    try {
-      await fetch("/api/waitlist", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ email }),
-      });
-      setSubmitted(true);
-    } catch {
-      setSubmitted(true);
-    }
-  };
 
   const copyPrompt = useCallback((index: number, prompt: string) => {
     navigator.clipboard.writeText(prompt);
@@ -222,7 +204,7 @@ export default function Home() {
 
         <div className="relative mx-auto max-w-5xl px-6 pt-20 pb-16 text-center">
           <div className="mb-6 inline-flex items-center gap-2 rounded-full border border-coral-500/30 bg-coral-500/10 px-4 py-1.5 text-sm text-coral-600 dark:text-coral-300">
-            🧠 Your AI prompt library
+            🧠 100% Free. No catch.
           </div>
           <h1 className="mb-6 text-5xl font-bold tracking-tight sm:text-6xl">
             Stop losing your
@@ -243,26 +225,15 @@ export default function Home() {
             </div>
           </div>
 
-          {!submitted ? (
-            <form onSubmit={handleSubmit} className="mx-auto flex max-w-md gap-3">
-              <input
-                type="email"
-                value={email}
-                onChange={(e) => setEmail(e.target.value)}
-                placeholder="you@email.com"
-                className="glass-input flex-1 px-4 py-3 text-foreground placeholder-foreground-secondary"
-                required
-              />
-              <button type="submit" className="chrome-pill-button primary btn-interactive">
-                Get Early Access
-              </button>
-            </form>
-          ) : (
-            <div className="liquid-glass-card mx-auto max-w-md p-4 text-center">
-              <p className="text-green-600 dark:text-green-400">✓ You&apos;re on the list! We&apos;ll notify you when PromptVault launches.</p>
-            </div>
-          )}
-          <p className="mt-4 text-sm text-foreground-secondary">Free to start. No credit card required.</p>
+          <div className="flex items-center justify-center gap-4 flex-wrap">
+            <a href="/signup" className="chrome-pill-button primary btn-interactive text-lg !px-8 !py-3">
+              Start Free
+            </a>
+            <a href="#chrome-extension" className="chrome-pill-button btn-interactive text-lg !px-8 !py-3">
+              Get Chrome Extension
+            </a>
+          </div>
+          <p className="mt-4 text-sm text-foreground-secondary">Free forever. Unlimited prompts. No credit card.</p>
         </div>
       </section>
 
@@ -341,7 +312,7 @@ export default function Home() {
       </section>
 
       {/* Chrome Extension */}
-      <section className="mx-auto max-w-5xl px-6 py-16">
+      <section id="chrome-extension" className="mx-auto max-w-5xl px-6 py-16">
         <div className="liquid-glass-card p-8 md:p-12">
           <div className="grid md:grid-cols-2 gap-8 items-center">
             <div>
@@ -420,49 +391,38 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Pricing */}
-      <section ref={pricingRef} className="scroll-reveal mx-auto max-w-5xl px-6 py-16">
-        <h2 className="mb-8 text-center text-3xl font-bold">Simple pricing</h2>
-        <div className="grid gap-6 sm:grid-cols-3">
-          <div className="liquid-glass-card card-interactive stagger-card p-6">
-            <h3 className="text-lg font-semibold">Free</h3>
-            <div className="mt-2 text-3xl font-bold">$0</div>
-            <ul className="mt-4 space-y-2 text-sm text-foreground-secondary">
-              <li>✓ 50 prompts</li>
-              <li>✓ Basic tagging</li>
-              <li>✓ Search</li>
-              <li>✓ 1 public collection</li>
-            </ul>
+      {/* Free Forever */}
+      <section className="mx-auto max-w-5xl px-6 py-16">
+        <div className="liquid-glass-card p-8 md:p-12 text-center">
+          <h2 className="text-3xl md:text-4xl font-bold mb-4">Completely Free. Forever.</h2>
+          <p className="text-foreground-secondary text-lg mb-8 max-w-2xl mx-auto">
+            No freemium tricks. No feature gates. No credit card required. Every feature, every user, always free.
+          </p>
+          <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4 mb-8">
+            {[
+              { icon: "♾️", text: "Unlimited prompts" },
+              { icon: "🏷️", text: "Tags and categories" },
+              { icon: "🔍", text: "Fuzzy search" },
+              { icon: "🧩", text: "Chrome extension" },
+              { icon: "📁", text: "Collections" },
+              { icon: "🔗", text: "Share with a link" },
+              { icon: "📤", text: "Import/Export" },
+              { icon: "🌙", text: "Dark mode" },
+            ].map((f) => (
+              <div key={f.text} className="flex items-center gap-2 text-sm text-foreground-secondary">
+                <span>{f.icon}</span> {f.text}
+              </div>
+            ))}
           </div>
-          <div className="liquid-glass-card card-interactive stagger-card p-6 ring-2 ring-coral-500/30 relative" style={{ transitionDelay: "100ms" }}>
-            <div className="absolute -top-3 left-1/2 -translate-x-1/2 rounded-full bg-gradient-to-r from-coral-500 to-coral-600 px-3 py-0.5 text-xs font-bold text-white">Popular</div>
-            <h3 className="text-lg font-semibold metallic-text-gradient">Pro</h3>
-            <div className="mt-2 text-3xl font-bold">$5<span className="text-lg text-foreground-secondary">/mo</span></div>
-            <ul className="mt-4 space-y-2 text-sm text-foreground-secondary">
-              <li>✓ Unlimited prompts</li>
-              <li>✓ Folders and collections</li>
-              <li>✓ Share with link</li>
-              <li>✓ Import/Export</li>
-              <li>✓ Priority support</li>
-            </ul>
-          </div>
-          <div className="liquid-glass-card card-interactive stagger-card p-6" style={{ transitionDelay: "200ms" }}>
-            <h3 className="text-lg font-semibold">Team</h3>
-            <div className="mt-2 text-3xl font-bold">$12<span className="text-lg text-foreground-secondary">/mo</span></div>
-            <ul className="mt-4 space-y-2 text-sm text-foreground-secondary">
-              <li>✓ Everything in Pro</li>
-              <li>✓ Team workspace</li>
-              <li>✓ Usage analytics</li>
-              <li>✓ Shared prompt library</li>
-              <li>✓ API access</li>
-            </ul>
-          </div>
+          <a href="/signup" className="chrome-pill-button primary btn-interactive text-lg !px-8 !py-3">
+            Sign Up Free
+          </a>
         </div>
       </section>
 
       {/* Footer */}
       <footer className="border-t border-border py-8 text-center text-sm text-foreground-secondary">
-        <p>PromptVault. Built for people who talk to AI every day.</p>
+        <p>PromptVault. Free forever. Built for people who talk to AI every day.</p>
       </footer>
     </main>
   );
