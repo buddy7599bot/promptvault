@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import Navbar from "@/components/Navbar";
 
 const CATEGORIES = [
   { icon: "✍️", name: "Writing", desc: "Blog posts, emails, copy" },
@@ -70,18 +71,20 @@ export default function Home() {
 
   return (
     <main className="min-h-screen">
+      <Navbar />
+
       {/* Hero */}
       <section className="relative overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-b from-violet-950/50 to-gray-950" />
+        <div className="absolute inset-0 bg-gradient-to-b from-coral-950/20 via-transparent to-transparent dark:from-coral-950/30" />
         <div className="relative mx-auto max-w-5xl px-6 pt-20 pb-16 text-center">
-          <div className="mb-6 inline-flex items-center gap-2 rounded-full border border-violet-500/30 bg-violet-500/10 px-4 py-1.5 text-sm text-violet-300">
+          <div className="mb-6 inline-flex items-center gap-2 rounded-full border border-coral-500/30 bg-coral-500/10 px-4 py-1.5 text-sm text-coral-600 dark:text-coral-300">
             🧠 Your AI prompt library
           </div>
           <h1 className="mb-6 text-5xl font-bold tracking-tight sm:text-6xl">
             Stop losing your
-            <span className="bg-gradient-to-r from-violet-400 to-fuchsia-400 bg-clip-text text-transparent"> best prompts</span>
+            <span className="metallic-text-gradient"> best prompts</span>
           </h1>
-          <p className="mx-auto mb-10 max-w-2xl text-lg text-gray-400">
+          <p className="mx-auto mb-10 max-w-2xl text-lg text-foreground-secondary">
             Save, organize, and share your AI prompts. Tag them, search them, build collections.
             Your prompt library, always one click away.
           </p>
@@ -93,22 +96,19 @@ export default function Home() {
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
                 placeholder="you@email.com"
-                className="flex-1 rounded-lg border border-gray-700 bg-gray-900 px-4 py-3 text-white placeholder-gray-500 focus:border-violet-500 focus:outline-none focus:ring-1 focus:ring-violet-500"
+                className="glass-input flex-1 px-4 py-3 text-foreground placeholder-foreground-secondary"
                 required
               />
-              <button
-                type="submit"
-                className="rounded-lg bg-violet-600 px-6 py-3 font-semibold text-white transition hover:bg-violet-500"
-              >
+              <button type="submit" className="chrome-pill-button primary">
                 Get Early Access
               </button>
             </form>
           ) : (
-            <div className="mx-auto max-w-md rounded-lg border border-green-500/30 bg-green-500/10 p-4 text-green-300">
-              ✓ You&apos;re on the list! We&apos;ll notify you when PromptVault launches.
+            <div className="liquid-glass-card mx-auto max-w-md p-4 text-center">
+              <p className="text-green-600 dark:text-green-400">✓ You&apos;re on the list! We&apos;ll notify you when PromptVault launches.</p>
             </div>
           )}
-          <p className="mt-4 text-sm text-gray-500">Free to start. No credit card required.</p>
+          <p className="mt-4 text-sm text-foreground-secondary">Free to start. No credit card required.</p>
         </div>
       </section>
 
@@ -117,13 +117,10 @@ export default function Home() {
         <h2 className="mb-8 text-center text-3xl font-bold">Prompts for every use case</h2>
         <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
           {CATEGORIES.map((cat) => (
-            <div
-              key={cat.name}
-              className="rounded-xl border border-gray-800 bg-gray-900/50 p-5 transition hover:border-violet-500/50 hover:bg-gray-900"
-            >
+            <div key={cat.name} className="liquid-glass-card p-5 transition hover:scale-[1.02] cursor-pointer">
               <span className="text-2xl">{cat.icon}</span>
-              <h3 className="mt-2 font-semibold">{cat.name}</h3>
-              <p className="text-sm text-gray-400">{cat.desc}</p>
+              <h3 className="mt-2 font-semibold text-foreground">{cat.name}</h3>
+              <p className="text-sm text-foreground-secondary">{cat.desc}</p>
             </div>
           ))}
         </div>
@@ -132,21 +129,21 @@ export default function Home() {
       {/* Featured Prompts */}
       <section className="mx-auto max-w-5xl px-6 py-16">
         <h2 className="mb-2 text-center text-3xl font-bold">Try these prompts now</h2>
-        <p className="mb-8 text-center text-gray-400">Click to copy. Paste into ChatGPT, Claude, or any AI.</p>
+        <p className="mb-8 text-center text-foreground-secondary">Click to copy. Paste into ChatGPT, Claude, or any AI.</p>
         <div className="grid gap-4 sm:grid-cols-2">
           {FEATURED_PROMPTS.map((p, i) => (
             <div
               key={i}
               onClick={() => copyPrompt(i, p.prompt)}
-              className="group cursor-pointer rounded-xl border border-gray-800 bg-gray-900/50 p-5 transition hover:border-violet-500/50 hover:bg-gray-900"
+              className="liquid-glass-card group cursor-pointer p-5 transition hover:scale-[1.01]"
             >
               <div className="mb-2 flex items-center justify-between">
-                <span className="rounded-full bg-violet-500/10 px-2.5 py-0.5 text-xs text-violet-300">{p.category}</span>
-                <span className="text-xs text-gray-500">{p.copies.toLocaleString()} copies</span>
+                <span className="rounded-full bg-coral-500/10 px-2.5 py-0.5 text-xs font-medium text-coral-600 dark:text-coral-300">{p.category}</span>
+                <span className="text-xs text-foreground-secondary">{p.copies.toLocaleString()} copies</span>
               </div>
-              <h3 className="mb-2 font-semibold group-hover:text-violet-300">{p.title}</h3>
-              <p className="text-sm leading-relaxed text-gray-400">{p.prompt}</p>
-              <div className="mt-3 text-xs text-violet-400">
+              <h3 className="mb-2 font-semibold text-foreground group-hover:text-coral-600 dark:group-hover:text-coral-300 transition">{p.title}</h3>
+              <p className="text-sm leading-relaxed text-foreground-secondary">{p.prompt}</p>
+              <div className="mt-3 text-xs font-medium text-coral-600 dark:text-coral-400">
                 {copied === i ? "✓ Copied!" : "Click to copy →"}
               </div>
             </div>
@@ -164,11 +161,13 @@ export default function Home() {
             { step: "3", title: "Share", desc: "Create public collections. Share with a link. Build your prompt portfolio." },
           ].map((s) => (
             <div key={s.step} className="text-center">
-              <div className="mx-auto mb-4 flex h-12 w-12 items-center justify-center rounded-full bg-violet-600 text-xl font-bold">
-                {s.step}
+              <div className="chrome-ring-button mx-auto mb-4 !w-14 !h-14">
+                <div className="chrome-ring-inner text-xl font-bold text-coral-400">
+                  {s.step}
+                </div>
               </div>
               <h3 className="mb-2 text-lg font-semibold">{s.title}</h3>
-              <p className="text-gray-400">{s.desc}</p>
+              <p className="text-foreground-secondary">{s.desc}</p>
             </div>
           ))}
         </div>
@@ -178,20 +177,21 @@ export default function Home() {
       <section className="mx-auto max-w-5xl px-6 py-16">
         <h2 className="mb-8 text-center text-3xl font-bold">Simple pricing</h2>
         <div className="grid gap-6 sm:grid-cols-3">
-          <div className="rounded-xl border border-gray-800 bg-gray-900/50 p-6">
+          <div className="liquid-glass-card p-6">
             <h3 className="text-lg font-semibold">Free</h3>
             <div className="mt-2 text-3xl font-bold">$0</div>
-            <ul className="mt-4 space-y-2 text-sm text-gray-400">
+            <ul className="mt-4 space-y-2 text-sm text-foreground-secondary">
               <li>✓ 50 prompts</li>
               <li>✓ Basic tagging</li>
               <li>✓ Search</li>
               <li>✓ 1 public collection</li>
             </ul>
           </div>
-          <div className="rounded-xl border border-violet-500/50 bg-violet-500/5 p-6 ring-1 ring-violet-500/20">
-            <h3 className="text-lg font-semibold text-violet-300">Pro</h3>
-            <div className="mt-2 text-3xl font-bold">$5<span className="text-lg text-gray-400">/mo</span></div>
-            <ul className="mt-4 space-y-2 text-sm text-gray-400">
+          <div className="liquid-glass-card p-6 ring-2 ring-coral-500/30 relative">
+            <div className="absolute -top-3 left-1/2 -translate-x-1/2 rounded-full bg-gradient-to-r from-coral-500 to-coral-600 px-3 py-0.5 text-xs font-bold text-white">Popular</div>
+            <h3 className="text-lg font-semibold metallic-text-gradient">Pro</h3>
+            <div className="mt-2 text-3xl font-bold">$5<span className="text-lg text-foreground-secondary">/mo</span></div>
+            <ul className="mt-4 space-y-2 text-sm text-foreground-secondary">
               <li>✓ Unlimited prompts</li>
               <li>✓ Folders and collections</li>
               <li>✓ Share with link</li>
@@ -199,10 +199,10 @@ export default function Home() {
               <li>✓ Priority support</li>
             </ul>
           </div>
-          <div className="rounded-xl border border-gray-800 bg-gray-900/50 p-6">
+          <div className="liquid-glass-card p-6">
             <h3 className="text-lg font-semibold">Team</h3>
-            <div className="mt-2 text-3xl font-bold">$12<span className="text-lg text-gray-400">/mo</span></div>
-            <ul className="mt-4 space-y-2 text-sm text-gray-400">
+            <div className="mt-2 text-3xl font-bold">$12<span className="text-lg text-foreground-secondary">/mo</span></div>
+            <ul className="mt-4 space-y-2 text-sm text-foreground-secondary">
               <li>✓ Everything in Pro</li>
               <li>✓ Team workspace</li>
               <li>✓ Usage analytics</li>
@@ -214,7 +214,7 @@ export default function Home() {
       </section>
 
       {/* Footer */}
-      <footer className="border-t border-gray-800 py-8 text-center text-sm text-gray-500">
+      <footer className="border-t border-border py-8 text-center text-sm text-foreground-secondary">
         <p>PromptVault. Built for people who talk to AI every day.</p>
       </footer>
     </main>

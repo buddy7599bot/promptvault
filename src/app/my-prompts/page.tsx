@@ -98,7 +98,7 @@ export default function MyPrompts() {
     return (
       <main className="min-h-screen">
         <Navbar />
-        <div className="flex items-center justify-center py-20 text-gray-500">Loading...</div>
+        <div className="flex items-center justify-center py-20 text-foreground-secondary">Loading...</div>
       </main>
     );
   }
@@ -110,39 +110,39 @@ export default function MyPrompts() {
         <h1 className="mb-6 text-3xl font-bold">My Prompts</h1>
 
         {loading ? (
-          <p className="text-gray-500">Loading your prompts...</p>
+          <p className="text-foreground-secondary">Loading your prompts...</p>
         ) : prompts.length === 0 ? (
-          <div className="py-16 text-center text-gray-500">
+          <div className="py-16 text-center text-foreground-secondary">
             <p className="text-lg">You have not submitted any prompts yet.</p>
-            <button onClick={() => router.push("/submit")} className="mt-4 text-violet-400 hover:text-violet-300">
+            <button onClick={() => router.push("/submit")} className="chrome-pill-button primary mt-4">
               Submit your first prompt
             </button>
           </div>
         ) : (
           <div className="space-y-4">
             {prompts.map((p) => (
-              <div key={p.id} className="rounded-xl border border-gray-800 bg-gray-900/50 p-5">
+              <div key={p.id} className="liquid-glass-card p-5">
                 <div className="mb-2 flex items-center justify-between">
                   <div className="flex items-center gap-3">
-                    <span className="rounded-full bg-violet-500/10 px-2.5 py-0.5 text-xs text-violet-300">{p.category}</span>
-                    <span className="text-xs text-gray-500">{p.is_public ? "Public" : "Private"}</span>
-                    <span className="text-xs text-gray-500">{p.copies} copies</span>
+                    <span className="rounded-full bg-coral-500/10 px-2.5 py-0.5 text-xs font-medium text-coral-600 dark:text-coral-300">{p.category}</span>
+                    <span className="text-xs text-foreground-secondary">{p.is_public ? "Public" : "Private"}</span>
+                    <span className="text-xs text-foreground-secondary">{p.copies} copies</span>
                   </div>
                   <div className="flex gap-2">
-                    <button onClick={() => startEdit(p)} className="rounded px-3 py-1 text-xs text-violet-400 hover:bg-violet-500/10">
+                    <button onClick={() => startEdit(p)} className="chrome-pill-button !py-1 !px-3 !text-xs">
                       Edit
                     </button>
-                    <button onClick={() => deletePrompt(p.id)} className="rounded px-3 py-1 text-xs text-red-400 hover:bg-red-500/10">
+                    <button onClick={() => deletePrompt(p.id)} className="chrome-pill-button !py-1 !px-3 !text-xs text-red-500">
                       Delete
                     </button>
                   </div>
                 </div>
-                <h3 className="mb-2 font-semibold">{p.title}</h3>
-                <p className="text-sm leading-relaxed text-gray-400 line-clamp-3">{p.prompt_text}</p>
+                <h3 className="mb-2 font-semibold text-foreground">{p.title}</h3>
+                <p className="text-sm leading-relaxed text-foreground-secondary line-clamp-3">{p.prompt_text}</p>
                 {p.tags?.length > 0 && (
                   <div className="mt-3 flex gap-1">
                     {p.tags.map((t) => (
-                      <span key={t} className="rounded bg-gray-800 px-1.5 py-0.5 text-xs text-gray-500">{t}</span>
+                      <span key={t} className="rounded-full bg-coral-500/5 border border-coral-500/10 px-2 py-0.5 text-xs text-foreground-secondary">{t}</span>
                     ))}
                   </div>
                 )}
@@ -154,34 +154,34 @@ export default function MyPrompts() {
 
       {/* Edit Modal */}
       {editing && (
-        <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/60 px-4">
-          <div className="w-full max-w-lg rounded-xl border border-gray-700 bg-gray-900 p-6">
+        <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/60 backdrop-blur-sm px-4">
+          <div className="liquid-glass-card w-full max-w-lg p-6">
             <h2 className="mb-4 text-xl font-bold">Edit Prompt</h2>
             <div className="space-y-4">
               <input
                 value={editForm.title}
                 onChange={(e) => setEditForm({ ...editForm, title: e.target.value })}
-                className="w-full rounded-lg border border-gray-700 bg-gray-800 px-4 py-2 text-white focus:border-violet-500 focus:outline-none"
+                className="glass-input w-full px-4 py-2 text-foreground"
                 placeholder="Title"
               />
               <textarea
                 value={editForm.prompt_text}
                 onChange={(e) => setEditForm({ ...editForm, prompt_text: e.target.value })}
                 rows={5}
-                className="w-full rounded-lg border border-gray-700 bg-gray-800 px-4 py-2 text-white focus:border-violet-500 focus:outline-none"
+                className="glass-input w-full px-4 py-2 text-foreground"
                 placeholder="Prompt text"
               />
               <select
                 value={editForm.category}
                 onChange={(e) => setEditForm({ ...editForm, category: e.target.value })}
-                className="w-full rounded-lg border border-gray-700 bg-gray-800 px-4 py-2 text-white focus:border-violet-500 focus:outline-none"
+                className="glass-input w-full px-4 py-2 text-foreground"
               >
                 {CATEGORIES.map((c) => <option key={c} value={c}>{c}</option>)}
               </select>
               <input
                 value={editForm.tags}
                 onChange={(e) => setEditForm({ ...editForm, tags: e.target.value })}
-                className="w-full rounded-lg border border-gray-700 bg-gray-800 px-4 py-2 text-white focus:border-violet-500 focus:outline-none"
+                className="glass-input w-full px-4 py-2 text-foreground"
                 placeholder="Tags (comma separated)"
               />
               <label className="flex items-center gap-2">
@@ -189,18 +189,15 @@ export default function MyPrompts() {
                   type="checkbox"
                   checked={editForm.is_public}
                   onChange={(e) => setEditForm({ ...editForm, is_public: e.target.checked })}
+                  className="accent-coral-500"
                 />
-                <span className="text-sm text-gray-400">Public</span>
+                <span className="text-sm text-foreground-secondary">Public</span>
               </label>
               <div className="flex justify-end gap-3">
-                <button onClick={() => setEditing(null)} className="rounded-lg px-4 py-2 text-sm text-gray-400 hover:text-white">
+                <button onClick={() => setEditing(null)} className="chrome-pill-button">
                   Cancel
                 </button>
-                <button
-                  onClick={saveEdit}
-                  disabled={saving}
-                  className="rounded-lg bg-violet-600 px-4 py-2 text-sm font-semibold text-white hover:bg-violet-500 disabled:opacity-50"
-                >
+                <button onClick={saveEdit} disabled={saving} className="chrome-pill-button primary disabled:opacity-50">
                   {saving ? "Saving..." : "Save"}
                 </button>
               </div>

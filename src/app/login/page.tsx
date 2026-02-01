@@ -28,16 +28,18 @@ export default function Login() {
 
   return (
     <main className="flex min-h-screen items-center justify-center px-6">
-      <div className="w-full max-w-sm">
-        <Link href="/" className="mb-8 block text-center text-2xl font-bold text-violet-400">🧠 PromptVault</Link>
-        <h1 className="mb-6 text-center text-2xl font-bold">Log in</h1>
+      <div className="liquid-glass-card w-full max-w-sm p-8">
+        <Link href="/" className="mb-8 block text-center text-2xl font-bold">
+          <span className="text-xl">🧠</span> <span className="metallic-text-gradient">PromptVault</span>
+        </Link>
+        <h1 className="mb-6 text-center text-2xl font-bold text-foreground">Log in</h1>
         <form onSubmit={handleSubmit} className="space-y-4">
           <input
             type="email"
             value={email}
             onChange={(e) => setEmail(e.target.value)}
             placeholder="Email"
-            className="w-full rounded-lg border border-gray-700 bg-gray-900 px-4 py-3 text-white placeholder-gray-500 focus:border-violet-500 focus:outline-none"
+            className="glass-input w-full px-4 py-3 text-foreground placeholder-foreground-secondary"
             required
           />
           <input
@@ -45,20 +47,20 @@ export default function Login() {
             value={password}
             onChange={(e) => setPassword(e.target.value)}
             placeholder="Password"
-            className="w-full rounded-lg border border-gray-700 bg-gray-900 px-4 py-3 text-white placeholder-gray-500 focus:border-violet-500 focus:outline-none"
+            className="glass-input w-full px-4 py-3 text-foreground placeholder-foreground-secondary"
             required
           />
-          {error && <p className="text-sm text-red-400">{error}</p>}
+          {error && <p className="text-sm text-red-500">{error}</p>}
           <button
             type="submit"
             disabled={loading}
-            className="w-full rounded-lg bg-violet-600 py-3 font-semibold text-white hover:bg-violet-500 disabled:opacity-50"
+            className="chrome-pill-button primary w-full !py-3 font-semibold disabled:opacity-50"
           >
             {loading ? "Logging in..." : "Log in"}
           </button>
         </form>
-        <p className="mt-4 text-center text-sm text-gray-500">
-          No account? <Link href="/signup" className="text-violet-400 hover:text-violet-300">Sign up</Link>
+        <p className="mt-4 text-center text-sm text-foreground-secondary">
+          No account? <Link href="/signup" className="text-coral-600 dark:text-coral-400 hover:text-coral-500">Sign up</Link>
         </p>
       </div>
     </main>

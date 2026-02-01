@@ -58,57 +58,59 @@ export default function Submit() {
       <Navbar />
       <div className="mx-auto max-w-3xl px-6 py-12">
         <h1 className="mb-2 text-3xl font-bold">Submit a Prompt</h1>
-        <p className="mb-8 text-gray-400">Share your best prompts with the community.</p>
+        <p className="mb-8 text-foreground-secondary">Share your best prompts with the community.</p>
 
         {!user && (
-          <div className="mb-6 rounded-lg border border-yellow-500/30 bg-yellow-500/10 p-4 text-yellow-300 text-sm">
-            Please <button onClick={() => router.push("/login")} className="underline">log in</button> to submit prompts.
+          <div className="liquid-glass-card mb-6 p-4 text-sm">
+            <span className="text-coral-600 dark:text-coral-300">Please </span>
+            <button onClick={() => router.push("/login")} className="underline text-coral-600 dark:text-coral-300">log in</button>
+            <span className="text-coral-600 dark:text-coral-300"> to submit prompts.</span>
           </div>
         )}
 
         {status === "saved" ? (
-          <div className="rounded-xl border border-green-500/30 bg-green-500/10 p-6 text-center">
-            <p className="text-lg text-green-300">Prompt saved!</p>
+          <div className="liquid-glass-card p-6 text-center">
+            <p className="text-lg text-green-600 dark:text-green-400">Prompt saved!</p>
             <div className="mt-4 flex justify-center gap-4">
-              <button onClick={() => setStatus("idle")} className="text-violet-400 hover:text-violet-300">Submit another</button>
-              <button onClick={() => router.push("/explore")} className="text-violet-400 hover:text-violet-300">Browse prompts</button>
+              <button onClick={() => setStatus("idle")} className="chrome-pill-button">Submit another</button>
+              <button onClick={() => router.push("/explore")} className="chrome-pill-button primary">Browse prompts</button>
             </div>
           </div>
         ) : (
           <form onSubmit={handleSubmit} className="space-y-6">
             <div>
-              <label className="mb-1 block text-sm font-medium">Title</label>
+              <label className="mb-1 block text-sm font-medium text-foreground">Title</label>
               <input type="text" value={title} onChange={(e) => setTitle(e.target.value)} placeholder="e.g. Senior Dev Code Reviewer"
-                className="w-full rounded-lg border border-gray-700 bg-gray-900 px-4 py-3 text-white placeholder-gray-500 focus:border-violet-500 focus:outline-none" required />
+                className="glass-input w-full px-4 py-3 text-foreground placeholder-foreground-secondary" required />
             </div>
             <div>
-              <label className="mb-1 block text-sm font-medium">Prompt</label>
+              <label className="mb-1 block text-sm font-medium text-foreground">Prompt</label>
               <textarea value={promptText} onChange={(e) => setPromptText(e.target.value)} placeholder="Paste your prompt here..." rows={6}
-                className="w-full rounded-lg border border-gray-700 bg-gray-900 px-4 py-3 text-white placeholder-gray-500 focus:border-violet-500 focus:outline-none" required />
+                className="glass-input w-full px-4 py-3 text-foreground placeholder-foreground-secondary" required />
             </div>
             <div className="grid gap-4 sm:grid-cols-2">
               <div>
-                <label className="mb-1 block text-sm font-medium">Category</label>
+                <label className="mb-1 block text-sm font-medium text-foreground">Category</label>
                 <select value={category} onChange={(e) => setCategory(e.target.value)}
-                  className="w-full rounded-lg border border-gray-700 bg-gray-900 px-4 py-3 text-white focus:border-violet-500 focus:outline-none">
+                  className="glass-input w-full px-4 py-3 text-foreground">
                   {CATEGORIES.map((c) => <option key={c} value={c}>{c}</option>)}
                 </select>
               </div>
               <div>
-                <label className="mb-1 block text-sm font-medium">Tags (comma separated)</label>
+                <label className="mb-1 block text-sm font-medium text-foreground">Tags (comma separated)</label>
                 <input type="text" value={tags} onChange={(e) => setTags(e.target.value)} placeholder="e.g. chatgpt, writing, seo"
-                  className="w-full rounded-lg border border-gray-700 bg-gray-900 px-4 py-3 text-white placeholder-gray-500 focus:border-violet-500 focus:outline-none" />
+                  className="glass-input w-full px-4 py-3 text-foreground placeholder-foreground-secondary" />
               </div>
             </div>
             <label className="flex items-center gap-2">
-              <input type="checkbox" checked={isPublic} onChange={(e) => setIsPublic(e.target.checked)} className="rounded border-gray-600" />
-              <span className="text-sm text-gray-400">Make this prompt public (visible to everyone)</span>
+              <input type="checkbox" checked={isPublic} onChange={(e) => setIsPublic(e.target.checked)} className="accent-coral-500" />
+              <span className="text-sm text-foreground-secondary">Make this prompt public (visible to everyone)</span>
             </label>
             <button type="submit" disabled={status === "saving" || !user}
-              className="w-full rounded-lg bg-violet-600 py-3 font-semibold text-white transition hover:bg-violet-500 disabled:opacity-50">
+              className="chrome-pill-button primary w-full !py-3 text-base font-semibold disabled:opacity-50">
               {status === "saving" ? "Saving..." : "Submit Prompt"}
             </button>
-            {status === "error" && <p className="text-center text-sm text-red-400">Something went wrong. Please try again.</p>}
+            {status === "error" && <p className="text-center text-sm text-red-500">Something went wrong. Please try again.</p>}
           </form>
         )}
       </div>
