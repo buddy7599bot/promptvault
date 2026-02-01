@@ -342,6 +342,86 @@ export default function Home() {
         </div>
       </section>
 
+      {/* Chrome Extension */}
+      <section className="mx-auto max-w-5xl px-6 py-16">
+        <div className="liquid-glass-card p-8 md:p-12">
+          <div className="grid md:grid-cols-2 gap-8 items-center">
+            <div>
+              <div className="inline-flex items-center gap-2 rounded-full border border-coral-500/30 bg-coral-500/10 px-3 py-1 text-xs text-coral-600 dark:text-coral-300 mb-4">
+                🧩 Chrome Extension
+              </div>
+              <h2 className="text-3xl font-bold mb-4">Save prompts from anywhere</h2>
+              <p className="text-foreground-secondary mb-6">
+                Our Chrome extension lets you save prompts directly from ChatGPT, Claude, Gemini, or any webpage.
+                Right-click to save. One click to search your entire library. No copy-pasting between tabs.
+              </p>
+              <ul className="space-y-3 text-sm text-foreground-secondary mb-6">
+                <li className="flex items-start gap-2">
+                  <span className="text-coral-500 mt-0.5">✓</span>
+                  <span>Right-click any text to save as a prompt</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <span className="text-coral-500 mt-0.5">✓</span>
+                  <span>Quick search popup - find any prompt in seconds</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <span className="text-coral-500 mt-0.5">✓</span>
+                  <span>Auto-detects prompts on ChatGPT and Claude</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <span className="text-coral-500 mt-0.5">✓</span>
+                  <span>Syncs with your PromptVault account</span>
+                </li>
+              </ul>
+              <button className="chrome-pill-button primary btn-interactive">
+                Get the Extension
+              </button>
+            </div>
+            <div className="flex justify-center">
+              <div className="relative">
+                {/* Browser mockup */}
+                <div className="w-72 h-80 rounded-xl border border-white/10 bg-[#1a1a2e] overflow-hidden shadow-2xl">
+                  {/* Browser toolbar */}
+                  <div className="flex items-center gap-2 px-3 py-2 bg-[#0f0f1a] border-b border-white/5">
+                    <div className="flex gap-1.5">
+                      <div className="w-2.5 h-2.5 rounded-full bg-red-500/60" />
+                      <div className="w-2.5 h-2.5 rounded-full bg-yellow-500/60" />
+                      <div className="w-2.5 h-2.5 rounded-full bg-green-500/60" />
+                    </div>
+                    <div className="flex-1 mx-2 px-3 py-1 rounded-md bg-white/5 text-[10px] text-white/30">chatgpt.com</div>
+                  </div>
+                  {/* Extension popup mockup */}
+                  <div className="p-4">
+                    <div className="rounded-lg border border-coral-500/20 bg-[#12121f] p-3 shadow-lg">
+                      <div className="flex items-center gap-2 mb-3">
+                        <div className="w-5 h-5 rounded bg-gradient-to-br from-coral-500 to-coral-600 flex items-center justify-center text-[8px] text-white font-bold">P</div>
+                        <span className="text-xs font-semibold text-white">PromptVault</span>
+                      </div>
+                      <div className="rounded-md bg-white/5 px-2.5 py-1.5 text-[10px] text-white/40 mb-3">Search prompts...</div>
+                      <div className="space-y-2">
+                        <div className="rounded-md bg-white/5 p-2">
+                          <div className="text-[10px] font-medium text-coral-400">Code Reviewer</div>
+                          <div className="text-[8px] text-white/30 mt-0.5">Act as a senior engineer...</div>
+                        </div>
+                        <div className="rounded-md bg-white/5 p-2">
+                          <div className="text-[10px] font-medium text-coral-400">AIDA Framework</div>
+                          <div className="text-[8px] text-white/30 mt-0.5">Write marketing copy...</div>
+                        </div>
+                        <div className="rounded-md bg-white/5 p-2">
+                          <div className="text-[10px] font-medium text-coral-400">Learning Roadmap</div>
+                          <div className="text-[8px] text-white/30 mt-0.5">Create a 30-day plan...</div>
+                        </div>
+                      </div>
+                      <button className="mt-3 w-full rounded-md bg-coral-500/20 border border-coral-500/30 py-1.5 text-[10px] text-coral-400 font-medium">+ Save New Prompt</button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* Pricing */}
       <section ref={pricingRef} className="scroll-reveal mx-auto max-w-5xl px-6 py-16">
         <h2 className="mb-8 text-center text-3xl font-bold">Simple pricing</h2>
