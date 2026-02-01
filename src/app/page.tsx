@@ -424,9 +424,7 @@ export default function Home() {
       <section className="mx-auto max-w-5xl px-6 py-12">
         <a href="https://dashpane.pro" target="_blank" rel="noopener noreferrer" className="block liquid-glass-card p-6 md:p-8 transition hover:scale-[1.01] hover:shadow-lg group">
           <div className="flex flex-col md:flex-row items-center gap-6">
-            <div className="flex-shrink-0 w-14 h-14 rounded-2xl bg-gradient-to-br from-cyan-500 to-blue-600 flex items-center justify-center text-2xl shadow-lg">
-              ⚡
-            </div>
+            <img src="/dashpane-logo.png" alt="DashPane" className="flex-shrink-0 w-14 h-14 rounded-2xl shadow-lg" />
             <div className="flex-1 text-center md:text-left">
               <p className="text-xs text-foreground-secondary mb-1">From the makers of PromptVault</p>
               <h3 className="text-xl font-bold text-foreground group-hover:text-cyan-500 dark:group-hover:text-cyan-400 transition">DashPane - The macOS App Switcher That Saves You 30 Min/Day</h3>
